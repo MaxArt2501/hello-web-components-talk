@@ -72,9 +72,6 @@
   <img src="img/reality-substitute.gif" alt="I reject your reality and substitute my own" class="full-media">
 </p-slide>
 <p-slide>
-  <h1 class="center">Cosa <em>possiamo fare</em> con i Web Components?</h1>
-</p-slide>
-<p-slide>
   <pre class="language-html self-center" style="margin: -3em 0 0 -3em"><code>&lt;my-card>
   &lt;p>Lorem ipsum&hellip;&lt;/p>
   &lt;button>Click!&lt;/button>
@@ -91,6 +88,41 @@
   <pre class="language-html self-center" style="margin-top: 20%;"><code>&lt;header>Titolo che mi pare!&lt;/header>
 &lt;p>Contenuto: affaracci miei&lt;/p>
 &lt;button>Ah ah ah ah!&lt;/button></code></pre></p-fragment>
+</p-slide>
+<p-slide>
+  <pre class="language-html self-center" style="margin: -3em 0 0 -3em"><code>&lt;my-card>
+  &lt;p>Lorem ipsum&hellip;&lt;/p>
+  &lt;button slot="footer">Click!&lt;/button>
+&lt;/my-card></code></pre>
+<p-fragment>
+  <div class="sketchy-arrow" style="width: 3.5em; top: 20%; right: 17%; transform: rotate(30deg);"></div>
+  <span style="font-size: 400%;
+  transform: rotate(-30deg);
+  position: absolute;
+  right: 7%;
+  top: 35%;">📦</span></p-fragment>
+<p-fragment class="self-center">
+  <div class="sketchy-arrow" style="width: 3.5em; top: 30%; right: 48%; transform: scale(-1, 1) rotate(-105deg);"></div>
+  <pre class="language-html self-center" style="margin: 20% 20% 0 -20%;"><code>&lt;header>
+  &lt;slot name="title">Titolo&lt;/slot>
+&lt;/header>
+&lt;slot>&lt;/slot>
+&lt;footer>
+  &lt;slot name="footer">&lt;/slot>
+&lt;/footer></code></pre></p-fragment>
+<p-fragment>
+  <div class="sketchy-arrow" style="width: 5.5em; top: 53%; left: 54%; transform: rotate(135deg);"></div>
+</p-fragment>
+</p-slide>
+<p-slide>
+  <img src="img/forse-non-tutti-sanno-che.svg" alt="Forse non tutti sanno che..." class="center">
+  <p-fragment>
+    <p class="center">&hellip; si può attaccare uno Shadow DOM <em>anche agli elementi nativi</em></p>
+  </p-fragment>
+  <h1 class="center"><p-fragment>¯\_(ツ)_/¯</p-fragment></h1>
+</p-slide>
+<p-slide>
+  <h1 class="center">Cosa <em>possiamo fare</em> con i Web Components?</h1>
 </p-slide>
 <p-slide>
   <h1 class="center">Tutto</h1>
