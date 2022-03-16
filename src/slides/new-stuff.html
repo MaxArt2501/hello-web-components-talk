@@ -1,0 +1,67 @@
+<p-slide>
+  <h4 class="our-header">Imperative Slot Assignment</h4>
+  <div class="self-center">
+    <p-fragment style="display: block;">
+      <pre class="language-js"><code>this.shadowRoot.querySelector('slot')
+  .assign(...this.children);</code></pre>
+    </p-fragment>
+    <p-fragment style="display: block;">
+      <pre class="language-js"><code>this.attachShadow({
+  mode: 'open',
+  slotAssignment: 'manual'
+});</code></pre>
+    </p-fragment>
+  </div>
+</p-slide>
+<p-slide>
+  <support-table chrome="86" firefox="92" safari="">Imperative slot assignment</support-table>
+</p-slide>
+<p-slide>
+  <h4 class="our-header">Declarative Shadow DOM</h4>
+  <p-fragment class="self-center">
+    <pre class="language-html"><code>&lt;my-card>
+  &lt;template shadowroot="open">
+    &lt;link rel="stylesheet" href="card.css">
+    &lt;header>Card title&lt;/header>
+    &lt;slot>Card content, maybe server-generated&lt;/slot>
+  &lt;/template>
+&lt;/my-card></code></pre>
+  </p-fragment>
+</p-slide>
+<p-slide>
+  <div class="self-center">
+    <p-fragment style="display: block;">
+    <pre class="language-js"><code>if (!this.shadowRoot) {
+  this.attachShadow({ mode: 'open' });
+}</code></pre>
+    </p-fragment>
+    <p-fragment style="display: block;">
+    <pre class="language-js"><code>element.getInnerHTML({
+  includeShadowRoots: true
+});</code></pre>
+    </p-fragment>
+  </div>
+</p-slide>
+<p-slide>
+  <support-table chrome="90" firefox="" safari="">Declarative Shadow DOM</support-table>
+</p-slide>
+<p-slide>
+  <h4 class="our-header">Constructable Stylesheets & CSS Modules</h4>
+  <div class="self-center">
+    <p-fragment style="display: block;">
+      <pre class="language-js"><code>const styles = new CSSStyleSheet();</code>
+<p-fragment><code>styles.replaceSync('.error { color: red; }');</code></p-fragment>
+<p-fragment><code>await styles.replace('.error { color: red; }');</code></p-fragment>
+
+<p-fragment><code>this.shadowRoot.adoptedStyleSheets = [ sheet ];</code></p-fragment>
+</pre>
+    </p-fragment>
+  </div>
+</p-slide>
+<p-slide>
+  <pre class="language-js self-center"><code>import styles from './card.css' assert { type: 'css' };
+const styles = await import('./card.css',
+  { assert: { type: 'css' } });
+
+this.shadowRoot.adoptedStyleSheets = [ styles ];</code></pre>
+</p-slide>
