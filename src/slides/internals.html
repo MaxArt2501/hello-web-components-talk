@@ -1,0 +1,144 @@
+<p-slide>
+  <h3 class="center">E questi?</h3>
+  <div class="two-columns center" style="gap: .5em 0">
+    <input type="text" style="font: inherit; border: .0625em solid; padding: .25em">
+    <button type="button" style="font: inherit; border-width: .0625em; padding: .25em">Click</button>
+    <a href="https://github.com/MaxArt2501/">Link</a>
+    <input type="file" style="font: inherit; border: .0625em solid; padding: .25em">
+  </div>
+</p-slide>
+<p-slide>
+  <h3 class="our-header">Estendere elementi nativi</h3>
+  <div class="self-center big-x-wrapper" style="display: flex;flex-direction: column;">
+    <p-fragment>
+      <pre class="language-js"><code>class MyButton extends HTMLButton {</code></pre>
+    </p-fragment>
+    <p-fragment>
+      <pre class="language-js"><code>customElements.define('my-button',
+  MyButton,</code> <p-fragment><code>{ extends: 'button' }</code></p-fragment><code>);</code></pre>
+    </p-fragment>
+    <p-fragment>
+      <pre class="language-html"><code>&lt;my-button> Click &lt;/my-button></code>
+<p-fragment><code>&lt;button is="my-button"> Click &lt;/button></code></p-fragment></pre>
+    </p-fragment>
+    <p-fragment><div class="big-x"></div></p-fragment>
+  </div>
+</p-slide>
+<p-slide>
+  <support-table chrome="67" firefox="63" safari="">Customized built-in elements</support-table>
+</p-slide>
+<p-slide class="align-center">
+  <img src="img/no-builtins.webp" alt="WebKit bug #182671 about implementing customized built-in elements closed as 'Won't fix'">
+  <img src="img/rniwa-is.webp" alt="Excerpt of a comment by NIWA, Ryosuke:
+  I'll note that we've vocally and repeatedly objected to having is=, and in fact, stated
+  publicly that we won't implement this feature">
+</p-slide>
+<p-slide>
+  <h1 class="center"><code>ElementInternals</code></h1>
+  <p-fragment>
+    <div style="position: absolute; top: 8%; left: 14%;">Elementi di form</div>
+    <div class="sketchy-arrow" style="width: 3em;top: 23%;left: 25%;transform: scale(1, -1) rotate(75deg);"></div>
+  </p-fragment>
+  <p-fragment>
+    <div style="position: absolute; top: 8%; left: 65%;">Accessibilità</div>
+    <div class="sketchy-arrow" style="width: 3em;top: 23%;left: 69%;transform: rotate(-105deg);"></div>
+  </p-fragment>
+  <p-fragment>
+    <div style="position: absolute; top: 75%; left: 25%;">Stati custom</div>
+    <div class="sketchy-arrow" style="width: 3em;top: 58%;left: 35%;transform: rotate(75deg);"></div>
+  </p-fragment>
+  <p-fragment>
+    <div style="position: absolute; top: 65%; left: 82%;">🚀</div>
+    <div class="sketchy-arrow" style="width: 3em;top: 55%;left: 70%;transform: scale(1, -1) rotate(-75deg);"></div>
+  </p-fragment>
+</p-slide>
+<p-slide>
+  <h3 class="our-header">Accessibilità</h3>
+  <div style="font-size: 50%; display: grid; grid-template-columns: repeat(4, auto); gap: .5em 1em; justify-items: start;">
+    <code>role</code>
+    <code>ariaAtomic</code>
+    <code>ariaAutoComplete</code>
+    <code>ariaBusy</code>
+    <code>ariaChecked</code>
+    <code>ariaColCount</code>
+    <code>ariaColIndex</code>
+    <code>ariaColSpan</code>
+    <code>ariaCurrent</code>
+    <code>ariaDescription</code>
+    <code>ariaDisabled</code>
+    <code>ariaExpanded</code>
+    <code>ariaHasPopup</code>
+    <code>ariaHidden</code>
+    <code>ariaKeyShortcuts</code>
+    <code>ariaLabel</code>
+    <code>ariaLevel</code>
+    <code>ariaLive</code>
+    <code>ariaModal</code>
+    <code>ariaMultiLine</code>
+    <code>ariaMultiSelectable</code>
+    <code>ariaOrientation</code>
+    <code>ariaPlaceholder</code>
+    <code>ariaPosInSet</code>
+    <code>ariaPressed</code>
+    <code>ariaReadOnly</code>
+    <code>ariaRelevant</code>
+    <code>ariaRequired</code>
+    <code>ariaRoleDescription</code>
+    <code>ariaRowCount</code>
+    <code>ariaRowIndex</code>
+    <code>ariaRowSpan</code>
+    <code>ariaSelected</code>
+    <code>ariaSetSize</code>
+    <code>ariaSort</code>
+    <code>ariaValueMax</code>
+    <code>ariaValueMin</code>
+    <code>ariaValueNow</code>
+    <code>ariaValueText</code>
+  </div>
+</p-slide><p-slide>
+  <pre class="self-center big language-js"><code>class MyDialogElement extends HTMLElement {
+  #internals = this.attachInternals();
+
+  constructor() {
+    this.#internals.role = 'dialog';
+    this.#internals.ariaModal = true;
+  }
+}</code></pre>
+</p-slide>
+<p-slide>
+  <h3 class="our-header">Form-Associated Custom Elements</h3>
+  <div style="font-size: 70%; display: grid; grid-template-columns: repeat(2, auto); gap: .5em 1em; justify-items: start;">
+    <code>form</code>
+    <code>willValidate</code>
+    <code>validity</code>
+    <code>validationMessage</code>
+    <code>labels</code>
+    <code>checkValidity()</code>
+    <code>reportValidity()</code>
+    <code>setFormValue()</code>
+    <code>setValidity()</code>
+  </div>
+</p-slide>
+<p-slide>
+  <pre class="self-center language-js"><code>class MyDatePickerElement extends HTMLElement {
+  static formAssociated = true;
+
+  #internals = this.attachInternals();
+
+  ...
+  handleChange(event) {
+    this.#internals.setFormValue(
+      event.target.value
+    );
+  }
+}</code></pre>
+</p-slide>
+<p-slide>
+  <h3 class="our-header">Stati custom</h3>
+  <div class="self-center">
+    <pre class="language-js"><code>this.#internals.states.add('--has-error');</code></pre>
+    <pre class="language-css"><code>:host(:--has-error) {
+  color: red;
+}</code></pre>
+  </div>
+</p-slide>
