@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ciao, Web Components! 👋</title>
+  <base href="..">
+  <link rel="shortcut icon" href="img/ts.png" type="image/png">
+  <link rel="stylesheet" href="vendor/prismjs/themes/prism-okaidia.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/print.css" media="print">
+  <link rel="stylesheet" href="css/presentation.css">
+</head>
+
+<body>
+  <p-deck>
+    <p-slide class="cover">
+  <h3>Ciao, Web Components! 👋</h3>
+  <h4>
+    Massimo Artizzu
+    <small>Web dev/architect, <a href="https://antreem.com/">Antreem</a></small>
+  </h4>
+</p-slide>
+<p-slide class="justify-start">
+  <img src="img/logo-antreem-border.svg" alt="Antreem logo" class="antreem-logo">
+  <div class="my-data">
+    <img src="img/maxart.jpg" alt="My face" class="my-face">
+    <h2>Massimo Artizzu</h2>
+    <p>
+      Web dev &amp; architect<br>
+      at <a href="https://antreem.com">Antreem</a>
+    </p>
+  </div>
+  <div class="my-info">
+    <h4>
+      <img src="img/twitter.svg" alt="Twitter logo"> /
+      <img src="img/github.svg" alt="GitHub logo"> /
+      <img src="img/dev-to.svg" alt="dev.to logo">
+      @MaxArt2501
+    </h4>
+  </div>
+</p-slide>
+<p-slide class="center">
+  <h3>Potete trovare le slide qui:</h3>
+  <img src="img/qr-slides.svg" alt="QR Code for the presentation's link" style="height: 7em; margin-bottom: 1em;">
+  <a
+    href="https://maxart2501.github.io/css-security-talk/css-day/">maxart2501.github.io/css-security-talk/css-day/</a>
+</p-slide>
+    <p-slide>
+  <h1 class="center">Cosa <em>sono</em> i Web Components?</h1>
+</p-slide>
+<p-slide class="align-center">
+  <h3>Hai presente questi elementi?</h3>
+  <ul>
+    <li><p-fragment>👉 <code>&lt;span></code></p-fragment></li>
+    <li><p-fragment>👉 <code>&lt;marquee></code></p-fragment></li>
+    <li><p-fragment>👉 <code>&lt;detail></code></p-fragment></li>
+    <li><p-fragment>👉 <code>&lt;dialog></code></p-fragment></li>
+    <li><p-fragment>👉 <code>&lt;video></code></p-fragment></li>
+    <li><p-fragment>👉 <code>&lt;select></code></p-fragment></li>
+  </ul>
+  <p-fragment>
+    <p>Vogliamo crearne <em>di nostri</em>.</p>
+  </p-fragment>
+  <p-fragment>
+    <p>Saranno i nostri <em>Web Component</em>.</p>
+  </p-fragment>
+</p-slide>
+<p-slide style="--slide-bg: #566288;">
+  <img src="img/butwhy.webp" alt="But why?!" class="full-media">
+</p-slide>
+<p-slide class="align-center">
+  <h1>Riusabilità</h1>
+  <p-fragment>
+    <p>Indipendenza da:</p>
+  </p-fragment>
+  <ul>
+    <li><p-fragment>👉 <span class="framework"></span> ={Angular, React, Vue&hellip;}</p-fragment></li>
+    <li><p-fragment>👉 &hellip; e loro versioni</p-fragment></li>
+    <li><p-fragment>👉 &hellip; e versioni di JavaScript</p-fragment></li>
+    <li><p-fragment>👉 &hellip; e da eventuali <em>contesti</em></p-fragment></li>
+  </ul>
+</p-slide>
+<p-slide class="align-center">
+  <h4>Sì, ma noi usiamo già <span class="framework"></span> per tutto!</h4>
+  <h1><p-fragment>¯\_(ツ)_/¯</p-fragment></h1>
+</p-slide>
+<p-slide>
+  <ul class="self-center">
+    <li>👉 &hellip; ma sei bloccato su <span class="framework"></span></li>
+    <li><p-fragment>👉 &hellip; e esistono le <em>breaking changes</em></p-fragment></li>
+    <li><p-fragment>👉 &hellip; e spesso ci si ritrova debito tecnico</p-fragment></li>
+    <li><p-fragment>👉 &hellip; e il futuro non è garantito</p-fragment></li>
+  </ul>
+</p-slide>
+<p-slide class="center">
+  <h1 class="uppercase">E comunque</h1>
+  <p-fragment>
+    <p>Niente ti impedisce di usare Web Components con <span class="framework"></span>!</p>
+  </p-fragment>
+</p-slide>
+<p-slide style="--slide-bg: #000">
+  <img src="img/nevermind.gif" alt="... Nevermind" class="full-media">
+</p-slide>
+<p-slide>
+  <h1 class="center">Cosa <em>c'è dentro</em> un Web Component?</h1>
+</p-slide>
+<p-slide>
+  <ul class="self-center">
+    <li>👉 Una <em>classe</em> che estende <code>HTMLElement</code>*</li>
+    <li><p-fragment>👉 Uno <em>Shadow DOM</em>*</p-fragment></li>
+    <li><p-fragment>👉 Un foglio di stile <em>incapsulato</em>*</p-fragment></li>
+    <li><p-fragment>👉 <em>Eventi</em> incapsulati*</p-fragment></li>
+  </ul>
+</p-slide>
+<p-slide>
+  <h1 class="center">&hellip; <em>Shadow</em> DOM?</h1>
+</p-slide>
+<p-slide>
+  <img src="img/reality-substitute.gif" alt="I reject your reality and substitute my own" class="full-media">
+</p-slide>
+<p-slide>
+  <pre class="language-html self-center" style="margin: -3em 0 0 -3em"><code>&lt;my-card>
+  &lt;p>Lorem ipsum&hellip;&lt;/p>
+  &lt;button>Click!&lt;/button>
+&lt;/my-card></code></pre>
+<p-fragment>
+  <div class="sketchy-arrow" style="width: 4.5em; top: 23%; right: 20%"></div>
+  <span style="font-size: 400%;
+  transform: rotate(-30deg);
+  position: absolute;
+  right: 7%;
+  top: 35%;">🗑</span></p-fragment>
+<p-fragment class="self-center">
+  <div class="sketchy-arrow" style="width: 3.5em; top: 36%; right: 40%; transform: scale(-1, 1) rotate(-90deg);"></div>
+  <pre class="language-html self-center" style="margin-top: 20%;"><code>&lt;header>Titolo che mi pare!&lt;/header>
+&lt;p>Contenuto: affaracci miei&lt;/p>
+&lt;button>Ah ah ah ah!&lt;/button></code></pre></p-fragment>
+</p-slide>
+<p-slide>
+  <pre class="language-html self-center" style="margin: -3em 0 0 -3em"><code>&lt;my-card>
+  &lt;p>Lorem ipsum&hellip;&lt;/p>
+  &lt;button slot="footer">Click!&lt;/button>
+&lt;/my-card></code></pre>
+<p-fragment>
+  <div class="sketchy-arrow" style="width: 3.5em; top: 20%; right: 17%; transform: rotate(30deg);"></div>
+  <span style="font-size: 400%;
+  transform: rotate(-30deg);
+  position: absolute;
+  right: 7%;
+  top: 35%;">📦</span></p-fragment>
+<p-fragment class="self-center">
+  <div class="sketchy-arrow" style="width: 3.5em; top: 30%; right: 48%; transform: scale(-1, 1) rotate(-105deg);"></div>
+  <pre class="language-html self-center" style="margin: 20% 20% 0 -20%;"><code>&lt;header>
+  &lt;slot name="title">Titolo&lt;/slot>
+&lt;/header>
+&lt;slot>&lt;/slot>
+&lt;footer>
+  &lt;slot name="footer">&lt;/slot>
+&lt;/footer></code></pre></p-fragment>
+<p-fragment>
+  <div class="sketchy-arrow" style="width: 5.5em; top: 53%; left: 54%; transform: rotate(135deg);"></div>
+</p-fragment>
+</p-slide>
+<p-slide>
+  <img src="img/forse-non-tutti-sanno-che.svg" alt="Forse non tutti sanno che..." class="center">
+  <p-fragment>
+    <p class="center">&hellip; si può attaccare uno Shadow DOM <em>anche agli elementi nativi</em></p>
+  </p-fragment>
+  <h1 class="center"><p-fragment>¯\_(ツ)_/¯</p-fragment></h1>
+</p-slide>
+<p-slide>
+  <h1 class="center">Cosa <em>possiamo fare</em> con i Web Components?</h1>
+</p-slide>
+<p-slide>
+  <h1 class="center">Tutto</h1>
+  <p-fragment>
+    <h3 class="center">quello che si può fare con HTML+CSS+JavaScript in un browser</h3>
+  </p-fragment>
+</p-slide>
+    <p-slide>
+  <h3 class="center">E questi?</h3>
+  <div class="two-columns center" style="gap: .5em 0">
+    <input type="text" style="font: inherit; border: .0625em solid; padding: .25em">
+    <button type="button" style="font: inherit; border-width: .0625em; padding: .25em">Click</button>
+    <a href="https://github.com/MaxArt2501/">Link</a>
+    <input type="file" style="font: inherit; border: .0625em solid; padding: .25em">
+  </div>
+</p-slide>
+<p-slide>
+  <h3 class="our-header">Estendere elementi nativi</h3>
+  <div class="self-center big-x-wrapper" style="display: flex;flex-direction: column;">
+    <p-fragment>
+      <pre class="language-js"><code>class MyButton extends HTMLButton {</code></pre>
+    </p-fragment>
+    <p-fragment>
+      <pre class="language-js"><code>customElements.define('my-button',
+  MyButton,</code> <p-fragment><code>{ extends: 'button' }</code></p-fragment><code>);</code></pre>
+    </p-fragment>
+    <p-fragment>
+      <pre class="language-html"><code>&lt;my-button> Click &lt;/my-button></code>
+<p-fragment><code>&lt;button is="my-button"> Click &lt;/button></code></p-fragment></pre>
+    </p-fragment>
+    <p-fragment><div class="big-x"></div></p-fragment>
+  </div>
+</p-slide>
+<p-slide>
+  <support-table chrome="67" firefox="63" safari="">Customized built-in elements</support-table>
+</p-slide>
+<p-slide class="align-center">
+  <img src="img/no-builtins.webp" alt="WebKit bug #182671 about implementing customized built-in elements closed as 'Won't fix'" style="height: 2em">
+  <img src="img/rniwa-is.webp" alt="Excerpt of a comment by NIWA, Ryosuke:
+  I'll note that we've vocally and repeatedly objected to having is=, and in fact, stated
+  publicly that we won't implement this feature" style="height: 4em">
+</p-slide>
+<p-slide>
+  <h1 class="center"><code>ElementInternals</code></h1>
+  <p-fragment>
+    <div style="position: absolute; top: 8%; left: 14%;">Elementi di form</div>
+    <div class="sketchy-arrow" style="width: 3em;top: 23%;left: 25%;transform: scale(1, -1) rotate(75deg);"></div>
+  </p-fragment>
+  <p-fragment>
+    <div style="position: absolute; top: 8%; left: 65%;">Accessibilità</div>
+    <div class="sketchy-arrow" style="width: 3em;top: 23%;left: 69%;transform: rotate(-105deg);"></div>
+  </p-fragment>
+  <p-fragment>
+    <div style="position: absolute; top: 75%; left: 25%;">Stati custom</div>
+    <div class="sketchy-arrow" style="width: 3em;top: 58%;left: 35%;transform: rotate(75deg);"></div>
+  </p-fragment>
+  <p-fragment>
+    <div style="position: absolute; top: 65%; left: 82%;">🚀</div>
+    <div class="sketchy-arrow" style="width: 3em;top: 55%;left: 70%;transform: scale(1, -1) rotate(-75deg);"></div>
+  </p-fragment>
+</p-slide>
+<p-slide>
+  <h3 class="our-header">Accessibilità</h3>
+  <div style="font-size: 50%; display: grid; grid-template-columns: repeat(4, auto); gap: .5em 1em; justify-items: start;">
+    <code>role</code>
+    <code>ariaAtomic</code>
+    <code>ariaAutoComplete</code>
+    <code>ariaBusy</code>
+    <code>ariaChecked</code>
+    <code>ariaColCount</code>
+    <code>ariaColIndex</code>
+    <code>ariaColSpan</code>
+    <code>ariaCurrent</code>
+    <code>ariaDescription</code>
+    <code>ariaDisabled</code>
+    <code>ariaExpanded</code>
+    <code>ariaHasPopup</code>
+    <code>ariaHidden</code>
+    <code>ariaKeyShortcuts</code>
+    <code>ariaLabel</code>
+    <code>ariaLevel</code>
+    <code>ariaLive</code>
+    <code>ariaModal</code>
+    <code>ariaMultiLine</code>
+    <code>ariaMultiSelectable</code>
+    <code>ariaOrientation</code>
+    <code>ariaPlaceholder</code>
+    <code>ariaPosInSet</code>
+    <code>ariaPressed</code>
+    <code>ariaReadOnly</code>
+    <code>ariaRelevant</code>
+    <code>ariaRequired</code>
+    <code>ariaRoleDescription</code>
+    <code>ariaRowCount</code>
+    <code>ariaRowIndex</code>
+    <code>ariaRowSpan</code>
+    <code>ariaSelected</code>
+    <code>ariaSetSize</code>
+    <code>ariaSort</code>
+    <code>ariaValueMax</code>
+    <code>ariaValueMin</code>
+    <code>ariaValueNow</code>
+    <code>ariaValueText</code>
+  </div>
+</p-slide><p-slide>
+  <pre class="self-center big language-js"><code>class MyDialogElement extends HTMLElement {
+  #internals = this.attachInternals();
+
+  constructor() {
+    this.#internals.role = 'dialog';
+    this.#internals.ariaModal = true;
+  }
+}</code></pre>
+</p-slide>
+<p-slide>
+  <support-table chrome="81" firefox="" safari="">Accessibilità</support-table>
+</p-slide>
+<p-slide>
+  <h3 class="our-header">Form-Associated Custom Elements</h3>
+  <div style="font-size: 70%; display: grid; grid-template-columns: repeat(2, auto); gap: .5em 1em; justify-items: start;">
+    <code>form</code>
+    <code>willValidate</code>
+    <code>validity</code>
+    <code>validationMessage</code>
+    <code>labels</code>
+    <code>checkValidity()</code>
+    <code>reportValidity()</code>
+    <code>setFormValue()</code>
+    <code>setValidity()</code>
+  </div>
+</p-slide>
+<p-slide>
+  <pre class="self-center language-js"><code>class MyDatePickerElement extends HTMLElement {
+  static formAssociated = true;
+
+  #internals = this.attachInternals();
+
+  ...
+  handleChange(event) {
+    this.#internals.setFormValue(
+      event.target.value
+    );
+  }
+}</code></pre>
+</p-slide>
+<p-slide>
+  <support-table chrome="77" firefox="98" safari="">FACEs</support-table>
+</p-slide>
+<p-slide>
+  <h3 class="our-header">Stati custom</h3>
+  <div class="self-center">
+    <pre class="language-js"><code>this.#internals.states.add('--has-error');</code></pre>
+    <pre class="language-css"><code>:host(:--has-error) {
+  color: red;
+}</code></pre>
+  </div>
+</p-slide>
+<p-slide>
+  <support-table chrome="90" firefox="" safari="">Stati custom</support-table>
+</p-slide>
+    <p-slide>
+  <h4 class="our-header">Imperative Slot Assignment</h4>
+  <div class="self-center">
+    <p-fragment style="display: block;">
+      <pre class="language-js"><code>this.shadowRoot.querySelector('slot')
+  .assign(...this.children);</code></pre>
+    </p-fragment>
+    <p-fragment style="display: block;">
+      <pre class="language-js"><code>this.attachShadow({
+  mode: 'open',
+  slotAssignment: 'manual'
+});</code></pre>
+    </p-fragment>
+  </div>
+</p-slide>
+<p-slide>
+  <support-table chrome="86" firefox="92" safari="">Imperative slot assignment</support-table>
+</p-slide>
+<p-slide>
+  <h4 class="our-header">Declarative Shadow DOM</h4>
+  <p-fragment class="self-center">
+    <pre class="language-html"><code>&lt;my-card>
+  &lt;template shadowroot="open">
+    &lt;link rel="stylesheet" href="card.css">
+    &lt;header>Card title&lt;/header>
+    &lt;slot>Card content, maybe server-generated&lt;/slot>
+  &lt;/template>
+&lt;/my-card></code></pre>
+  </p-fragment>
+</p-slide>
+<p-slide>
+  <div class="self-center">
+    <p-fragment style="display: block;">
+    <pre class="language-js"><code>if (!this.shadowRoot) {
+  this.attachShadow({ mode: 'open' });
+}</code></pre>
+    </p-fragment>
+    <p-fragment style="display: block;">
+    <pre class="language-js"><code>element.getInnerHTML({
+  includeShadowRoots: true
+});</code></pre>
+    </p-fragment>
+  </div>
+</p-slide>
+<p-slide>
+  <support-table chrome="90" firefox="" safari="">Declarative Shadow DOM</support-table>
+</p-slide>
+<p-slide>
+  <h4 class="our-header">Constructable Stylesheets & CSS Modules</h4>
+  <div class="self-center">
+    <p-fragment style="display: block;">
+      <pre class="language-js"><code>const styles = new CSSStyleSheet();</code>
+<p-fragment><code>styles.replaceSync('.error { color: red; }');</code></p-fragment>
+<p-fragment><code>await styles.replace('.error { color: red; }');</code></p-fragment>
+
+<p-fragment><code>this.shadowRoot.adoptedStyleSheets = [ sheet ];</code></p-fragment>
+</pre>
+    </p-fragment>
+  </div>
+</p-slide>
+<p-slide>
+  <pre class="language-js self-center"><code>import styles from './card.css' assert { type: 'css' };
+const styles = await import('./card.css',
+  { assert: { type: 'css' } });
+
+this.shadowRoot.adoptedStyleSheets = [ styles ];</code></pre>
+</p-slide>
+    <p-slide>
+  <h1 class="center">That's all, folks!<br />👋</h1>
+</p-slide>
+<p-slide>
+  <h3 class="center final-link">
+    <a href="https://maxart2501.github.io/hello-web-components-talk/">
+      maxart2501.github.io/hello-web-components-talk/
+    </a>
+    <img src="img/qr-slides.svg" alt="QR Code for the presentation's link">
+  </h3>
+</p-slide>
+<p-slide>
+  <pre class="self-center big"><code class="language-typescript">const question: Question[] = await getQuestions()
+questions.forEach((question: Question) => {
+  question.answer()
+})</code></pre>
+</p-slide>
+  </p-deck>
+  <div role="progressbar" class="presentation-progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+  <div role="toolbar" class="presentation-toolbar">
+    <button type="button" class="toggle-mode" title="Toggle speaker mode" aria-label="Toggle speaker mode (Alt-M)">
+      <svg viewBox="0 0 1 1">
+        <path stroke-width="0.1" stroke="currentColor" fill="none"
+          d="M.05 .5h.6v-.45h-.6v.9h.6v-.45M.75 .05h.25M.75 .2h.25M.75 .35h.25" />
+      </svg>
+    </button>
+    <button type="button" class="fullscreen" title="Toggle fullscreen mode" aria-label="Toggle fullscreen mode">
+      <svg viewBox="0 0 1 1">
+        <g stroke="currentColor" fill="none" stroke-width="0.1">
+          <path d="M.05 .3v-.25h.25M.7 .05h.25v.25M.95 .7v.25h-.25M.3 .95h-.25v-.25" />
+          <path d="M.05 .3h.25v-.25M.7 .05v.25h.25M.95 .7h-.25v.25M.3 .95v-.25h-.25" />
+        </g>
+      </svg>
+    </button>
+  </div>
+  <nav class="presentation-nav">
+    <button type="button" class="previous" title="Go backward" aria-label="Go backward"></button>
+    <button type="button" class="next" title="Go forward" aria-label="Go forward"></button>
+  </nav>
+  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/presentation.js"></script>
+  <script defer src="vendor/prismjs/prism.js"></script>
+  <script defer src="vendor/prismjs/components/prism-typescript.js"></script>
+</body>
+
+</html>
