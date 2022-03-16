@@ -28,10 +28,10 @@
   <support-table chrome="67" firefox="63" safari="">Customized built-in elements</support-table>
 </p-slide>
 <p-slide class="align-center">
-  <img src="img/no-builtins.webp" alt="WebKit bug #182671 about implementing customized built-in elements closed as 'Won't fix'">
+  <img src="img/no-builtins.webp" alt="WebKit bug #182671 about implementing customized built-in elements closed as 'Won't fix'" style="height: 2em">
   <img src="img/rniwa-is.webp" alt="Excerpt of a comment by NIWA, Ryosuke:
   I'll note that we've vocally and repeatedly objected to having is=, and in fact, stated
-  publicly that we won't implement this feature">
+  publicly that we won't implement this feature" style="height: 4em">
 </p-slide>
 <p-slide>
   <h1 class="center"><code>ElementInternals</code></h1>
@@ -106,6 +106,9 @@
 }</code></pre>
 </p-slide>
 <p-slide>
+  <support-table chrome="81" firefox="" safari="">Accessibilità</support-table>
+</p-slide>
+<p-slide>
   <h3 class="our-header">Form-Associated Custom Elements</h3>
   <div style="font-size: 70%; display: grid; grid-template-columns: repeat(2, auto); gap: .5em 1em; justify-items: start;">
     <code>form</code>
@@ -134,6 +137,9 @@
 }</code></pre>
 </p-slide>
 <p-slide>
+  <support-table chrome="77" firefox="98" safari="">FACEs</support-table>
+</p-slide>
+<p-slide>
   <h3 class="our-header">Stati custom</h3>
   <div class="self-center">
     <pre class="language-js"><code>this.#internals.states.add('--has-error');</code></pre>
@@ -141,4 +147,7 @@
   color: red;
 }</code></pre>
   </div>
+</p-slide>
+<p-slide>
+  <support-table chrome="90" firefox="" safari="">Stati custom</support-table>
 </p-slide>
